@@ -27,11 +27,11 @@ namespace WebApplication1.Controllers
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             var contentStreamReader = new StreamReader(response.Content.ReadAsStream(), Encoding.GetEncoding("windows-1251"));
 
-            XmlSerializer serializer = new(typeof(List<Rate>), new XmlRootAttribute("ValCurs"));
+            XmlSerializer serializer = new(typeof(RateList));
             try
             {
                 using var stream = contentStreamReader;
-                var rates = (List<Rate>)serializer.Deserialize(stream);
+                var rates = (RateList)serializer.Deserialize(stream);
                 return Ok(rates);
             }
             catch

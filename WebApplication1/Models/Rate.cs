@@ -6,7 +6,6 @@ using System.Xml.Serialization;
 
 namespace WebApplication1.Models
 {
-    [XmlType("Valute")]
     [Serializable]
     public class Rate
     {
